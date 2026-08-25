@@ -1,9 +1,9 @@
 [package]
 name = "cloison-wasm"
-version.workspace = true
-edition.workspace = true
-license.workspace = true
-repository.workspace = true
+version = "0.1.0"
+edition = "2021"
+license = "Apache-2.0"
+repository = "https://github.com/coucagog/cloison-wasm"
 description = "CLOISON — module navigateur @cloison/core : tokenize/restore in-browser (wasm-bindgen), coffre in-memory (0 valeur persistée en clair)."
 
 [dependencies]
@@ -11,7 +11,7 @@ description = "CLOISON — module navigateur @cloison/core : tokenize/restore in
 # (cloisonInitSession, cloisonTokenize, cloisonRestore, …) vivent dans
 # `cloison-core::wasm` (gated target_arch = "wasm32") ; ce crate les
 # ré-exporte pour un packaging navigateur propre.
-cloison-core = { path = "../cloison-core", features = ["wasm"] }
+cloison-core = { git = "https://github.com/coucagog/cloison-core", tag = "v0.2.5", features = ["wasm"] }
 
 [target."cfg(target_arch = \"wasm32\")".dependencies]
 wasm-bindgen = "0.2"
